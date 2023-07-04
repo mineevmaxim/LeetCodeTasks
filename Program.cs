@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using LeetCodeTasks;
+using System.Reflection;
+
+var nums = new[] { 3, 3 };
+var target = 6;
+var result = LeetCodeTasks.Solution.TwoSum(nums, target);
+Console.WriteLine(result[0]);
+Console.WriteLine(result[1]);
