@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 
 namespace LeetCodeTasks
 {
@@ -16,6 +16,23 @@ namespace LeetCodeTasks
                         return new[] { i, j };
                     currentSum -= nums[j];
                 }
+            }
+            return new[] {-1, -1};
+        }
+    }
+    public class BestSolution
+    {
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            var dictionary = new Dictionary<int, int>();
+            for (var i = 0; i < nums.Length; i++)
+                dictionary.Add(nums[i], i);
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var comlementation = target - nums[i];
+                if (dictionary.ContainsKey(comlementation))
+                    if (dictionary[comlementation] != i)
+                        return new[] { i, dictionary[comlementation] };
             }
             return new[] {-1, -1};
         }
