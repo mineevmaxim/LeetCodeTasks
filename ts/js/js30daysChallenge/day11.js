@@ -2,19 +2,15 @@
  * @param {Function} fn
  * @return {Function}
  */
-function argsToString (...args) {
-	return args.join('123');
-}
-
 function memoize(fn) {
     const mapArgumentsResult = {};
     return function(...args) {
-        const argsStr = argsToString(...args);
-		if (argsStr in mapArgumentsResult) {
-			return mapArgumentsResult[argsStr];
+        const jsonArgs = JSON.stringify(args);
+		if (jsonArgs in mapArgumentsResult) {
+			return mapArgumentsResult[jsonArgs];
 		}
 		const callbackResult = fn(...args);
-		mapArgumentsResult[argsStr] = callbackResult;
+		mapArgumentsResult[jsonArgs] = callbackResult;
 		return callbackResult;
     }
 }
