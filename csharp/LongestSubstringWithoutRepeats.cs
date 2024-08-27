@@ -9,7 +9,6 @@ namespace LeetCodeTasks
 			var result = 0;
 			foreach (var c in s)
 			{
-				var queueArray = queue.ToArray();
 				while (queue.Count > 0 && queue.Contains(c))
 				{
 					queue.Dequeue();
